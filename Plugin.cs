@@ -2,6 +2,7 @@
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
 using VampireCommandFramework;
+using VcfErrorExposure.SomeDomain;
 
 namespace VcfErrorExposure;
 
@@ -24,6 +25,10 @@ public class Plugin : BasePlugin
 
         // Register all commands in the assembly with VCF
         CommandRegistry.RegisterAll();
+
+        // Check if our pig can oink
+        var pig = new Pig();
+        Log.LogMessage($"Pig says {pig.MakeNoise()}");
     }
 
     public override bool Unload()
